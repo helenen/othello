@@ -1,19 +1,19 @@
 import React from "react";
-
+import Board from '../Board/Board'
 
 class Game extends React.Component {
-    constructor(props) {
+    constructor() {
         super(props);
+
     }
-    playPawn(i, j, player) {
-        let board = this.state.board;
+    render() {
 
-        if (board[i][j] !== player) {
-            board[i][j] = player
-        } else {
-            throw new Error("can't play when a pawn is already played");
+        initializePawns(this.state.board){
+            console.log(board, "board");
         }
+        return (
 
+        )
     }
 }
 

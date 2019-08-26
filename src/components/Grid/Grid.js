@@ -1,29 +1,8 @@
 import React from 'react';
 
 
-import Board from './Board'
+import Board from '../Board/Board'
 
-const styles = {
-    tbody: {
-        display: 'flex',
-        margin: '2rem',
-        flexWrap: 'wrap',
-        justifyContent: "center",
-        border: '0.5px solid',
-
-    },
-    pawn: {
-        height: '25px',
-        width: '25px',
-        backgroundColor: 'black',
-        borderRadius: '100%',
-        display: 'inlineBlock'
-    },
-    td: {
-        borderSpacing: '0'
-    }
-
-}
 class Grid extends React.Component {
     constructor(props) {
         super(props)
@@ -35,7 +14,7 @@ class Grid extends React.Component {
     render() {
         return (
             <div>
-                <Board board={this.state.board} />
+                <Board board={this.props.board} />
             </div >)
     }
 }

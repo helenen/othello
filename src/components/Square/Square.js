@@ -31,14 +31,9 @@ class Square extends React.Component {
     render() {
 
         return (
-            <td className="square" id={this.props.id} style={styles.square} onClick={() => this.setState({ pawn: true })} >
-                <table>
-                    <tbody>
-                        {this.state.pawn ? (<div className="pawn" style={styles.pawn} />) : ""}
-                    </tbody>
-                </table>
-
-            </td>
+            <div className="square" id={this.props.id} style={styles.square} onClick={() => this.setState({ pawn: true })} >
+                {this.state.pawn ? (<div className="pawn" style={styles.pawn} />) : ""}
+            </div>
         )
     }
 }
