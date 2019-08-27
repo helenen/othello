@@ -11,8 +11,7 @@ let styles = {
         height: '25px',
         width: '25px',
         backgroundColor: 'black',
-        borderRadius: '100%',
-        display: 'inlineBlock'
+        borderRadius: '100%'
     }
 
 }
