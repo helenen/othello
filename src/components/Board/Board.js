@@ -21,16 +21,21 @@ class InitializeBoard extends React.Component {
     }
     render() {
         const styles = {
-            td: {
-                borderSpacing: '0'
+            container: {
+                height: '50vh'
             }
         }
         return (
-            <div>
-                {this.state.board.map((row, index) => {
-                    return <td className="row" style={styles.td} key={index}>
-                        {row.map((column, index) => {
-                            return <Square className="column" key={index} value={column} />
+            <div className='container' style={styles.container}>
+                {this.state.board.map((row, rowIndex) => {
+                    return <td className="row" key={rowIndex}>
+                        {row.map((column, columnIndex) => {
+                            // if ((rowIndex === 3 && columnIndex === 3) || (rowIndex === 4 && columnIndex === 3)) {
+                            //     return <Square className="column" key={columnIndex} value={column} initialSquare={true} />
+                            // } else if ((rowIndex === 3 && columnIndex === 4) || (rowIndex === 4 && columnIndex === 4)) {
+                            //     return <Square className="column" key={columnIndex} value={column} initialSquare={true} />
+                            // }
+                            return <Square className="column" key={columnIndex} value={column} />
                         })}
                     </td>
                 })}

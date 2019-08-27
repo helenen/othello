@@ -1,9 +1,7 @@
 import React from 'react';
 let styles = {
     square: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        margin: 'auto',
         color: 'black',
         border: "0.1px solid",
         height: '3rem',
@@ -31,7 +29,7 @@ class Square extends React.Component {
     render() {
 
         return (
-            <div className="square" id={this.props.id} style={styles.square} onClick={() => this.setState({ pawn: true })} >
+            <div className="square" style={styles.square} onClick={() => this.setState({ pawn: true })} >
                 {this.state.pawn ? (<div className="pawn" style={styles.pawn} />) : ""}
             </div>
         )

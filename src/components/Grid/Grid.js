@@ -15,7 +15,8 @@ class Grid extends React.Component {
         return (
             <div>
                 <Board board={this.props.board} />
-            </div >)
+            </div >
+        )
     }
 }
 
