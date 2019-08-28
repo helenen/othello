@@ -27,19 +27,12 @@ let styles = {
 }
 
 class Square extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            pawn: props.initialSquare,
-            value: props.value
-        };
 
-    }
     render() {
 
         return (
-            <div className="square" style={styles.square} onClick={() => this.setState({ pawn: 1, value: 1 })} >
-                {this.state.pawn === 1 ? (<div className="pawn" style={styles.pawn} />) : this.state.pawn === 2 ? (<div className="pawn" style={styles.isWhite} />) : ""}
+            <div className="square" style={styles.square} onClick={this.props.onClick} >
+                {this.props.value === "noir" ? (<div className="pawn" style={styles.pawn} value={this.props.column} />) : this.props.value === "blanc" ? (<div className="pawn" style={styles.isWhite} value={this.props.column} />) : ""}
             </div>
         )
     }
