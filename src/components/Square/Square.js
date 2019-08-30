@@ -10,7 +10,7 @@ let styles = {
         height: '3rem',
         width: "6rem"
     },
-    pawn: {
+    isBlack: {
         height: '25px',
         width: '25px',
         backgroundColor: 'black',
@@ -32,7 +32,8 @@ class Square extends React.Component {
 
         return (
             <div className="square" style={styles.square} onClick={this.props.onClick} >
-                {this.props.value === "noir" ? (<div className="pawn" style={styles.pawn} value={this.props.column} />) : this.props.value === "blanc" ? (<div className="pawn" style={styles.isWhite} value={this.props.column} />) : ""}
+
+                {this.props.value === "black" ? (<div className="pawn" style={styles.isBlack} value={this.props.column} />) : this.props.value === "white" ? (<div className="pawn" style={styles.isWhite} value={this.props.column} />) : ""}
             </div>
         )
     }

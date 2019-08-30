@@ -11,8 +11,8 @@ class InitializeBoard extends React.Component {
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-                ["vide", "vide", "vide", "noir", "blanc", "vide", "vide", "vide"],
-                ["vide", "vide", "vide", "blanc", "noir", "vide", "vide", "vide"],
+                ["vide", "vide", "vide", "black", "white", "vide", "vide", "vide"],
+                ["vide", "vide", "vide", "white", "black", "vide", "vide", "vide"],
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
                 ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"]
@@ -20,12 +20,12 @@ class InitializeBoard extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
-    handleClick(e) {
-        this.setState(prevState => ({
+    handleClick(rowIndex, cellIndex) {
+        this.setState(prevState => {
 
-            // board: [prevState.board[rowIndex][cellIndex] ]
+            prevState.board[cellIndex][rowIndex] = "black"
 
-        }))
+        })
 
     }
 
@@ -45,9 +45,10 @@ class InitializeBoard extends React.Component {
                     return <td className="row" style={styles.container} key={rowIndex}>
 
                         {row.map((cell, cellIndex) => {
-
-                            return <Square className="column" key={cellIndex} value={cell} onClick={e => this.handleClick(e)} />
+                            return <Square className="column" key={cellIndex} value={cell} onClick={() => this.handleClick(rowIndex, cellIndex)} />
                         })}
+
+
                     </td>
                 })}
             </div>
