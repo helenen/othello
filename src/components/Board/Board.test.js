@@ -18,14 +18,14 @@ describe("should have a grid", () => {
     it("should have state", () => {
 
         expect(wrapper.state().board).toEqual([
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 2, 0, 0, 0],
-            [0, 0, 0, 2, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0]
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "black", "white", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "white", "black", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+            ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"]
         ]);
     })
 

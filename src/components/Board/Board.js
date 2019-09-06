@@ -20,12 +20,15 @@ class InitializeBoard extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
+
     handleClick(rowIndex, cellIndex) {
-        this.setState(prevState => {
+        const newBoard = this.state.board.slice()
 
-            prevState.board[cellIndex][rowIndex] = "black"
+        if (newBoard[rowIndex][cellIndex]) {
+            newBoard[rowIndex][cellIndex] = "black"
+        }
 
-        })
+        this.setState({ newBoard })
 
     }
 
@@ -37,20 +40,24 @@ class InitializeBoard extends React.Component {
             }
         }
 
+
         return (
             <div className='container' style={styles.container}>
 
-                {this.state.board.map((row, rowIndex) => {
+                {this.state.newBoard.map((row, rowIndex) => {
 
                     return <td className="row" style={styles.container} key={rowIndex}>
 
                         {row.map((cell, cellIndex) => {
+
                             return <Square className="column" key={cellIndex} value={cell} onClick={() => this.handleClick(rowIndex, cellIndex)} />
                         })}
 
 
                     </td>
+
                 })}
+
             </div>
         )
     }
