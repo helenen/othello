@@ -28,10 +28,19 @@ class InitializeBoard extends React.Component {
             newBoard[rowIndex][cellIndex] = "black"
 
         }
-        this.setState({ newBoard })
-
+        const aiNewBoard = this.setState({ newBoard })
+        return aiNewBoard
     }
+    aiPlay(rowIndex, cellIndex, aiNewBoard) {
 
+
+        console.log(aiNewBoard, "new");
+        //const emptyIndex = [];
+        // if (newBoard[rowIndex][cellIndex] === "vide") {
+        //     emptyIndex.push(newBoard[rowIndex][cellIndex])
+        //     console.log(emptyIndex, "empty");
+        // }
+    }
 
     render() {
         const styles = {
@@ -50,7 +59,7 @@ class InitializeBoard extends React.Component {
                     return <td className="row" style={styles.container} key={rowIndex}>
 
                         {row.map((cell, cellIndex) => {
-                            return <Square className="column" key={cellIndex} value={cell} onClick={() => this.handleClick(rowIndex, cellIndex)} />
+                            return <Square className="column" key={cellIndex} value={cell} onClick={() => { this.handleClick(rowIndex, cellIndex); this.aiPlay() }} />
                         })}
 
 
