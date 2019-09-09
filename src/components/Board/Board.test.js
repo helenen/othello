@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Board from './Board'
+import InitializeBoard from './Board'
 
 
 describe("should have a grid", () => {
-    const wrapper = shallow(<Board />);
+    const wrapper = shallow(<InitializeBoard />);
 
     it("should render 8 columns with 8 arrays in state", () => {
         const row = wrapper.find('.row');
@@ -28,6 +28,5 @@ describe("should have a grid", () => {
             ["vide", "vide", "vide", "vide", "vide", "vide", "vide", "vide"]
         ]);
     })
-
 
 })
