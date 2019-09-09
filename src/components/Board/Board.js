@@ -28,11 +28,10 @@ class InitializeBoard extends React.Component {
             newBoard[rowIndex][cellIndex] = "black"
 
         }
-        const aiNewBoard = this.setState({ newBoard })
-        return aiNewBoard
+        this.setState({ newBoard })
+
     }
     aiPlay(rowIndex, cellIndex, aiNewBoard) {
-
 
         console.log(aiNewBoard, "new");
         //const emptyIndex = [];
