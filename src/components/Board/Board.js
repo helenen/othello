@@ -31,14 +31,28 @@ class InitializeBoard extends React.Component {
         this.setState({ newBoard })
 
     }
-    aiPlay(rowIndex, cellIndex, aiNewBoard) {
+    aiPlay() {
 
-        console.log(aiNewBoard, "new");
-        //const emptyIndex = [];
-        // if (newBoard[rowIndex][cellIndex] === "vide") {
-        //     emptyIndex.push(newBoard[rowIndex][cellIndex])
-        //     console.log(emptyIndex, "empty");
+        let emptyIndex = [];
+        const newBoard = this.state.board
+
+        for (let i = 0; i < newBoard.length; i++) {
+            for (let j = 0; j < newBoard[i].length; j++) {
+
+                if (newBoard[i][j] === "vide") {
+                    emptyIndex.push({ row: i, column: j })
+
+                }
+            }
+        }
+        let randIndex = Math.floor(Math.random() * emptyIndex.length);
+        console.log(newBoard[randIndex].row);
+        // if (newBoard[randIndex]) {
+        //     console.log("pilou");
         // }
+        // this.setState({ newBoard })
+        // console.log(newBoard[rowRandIndex][cellRandIndex], 'r');
+        //newBoard[rowRandIndex][cellRandIndex] = "white"
     }
 
     render() {
