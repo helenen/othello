@@ -19,40 +19,39 @@ class InitializeBoard extends React.Component {
             ]
         };
         this.handleClick = this.handleClick.bind(this);
+        this.playAPawn = this.playAPawn.bind(this);
+        this.aiPlay = this.aiPlay.bind(this);
     }
 
-    handleClick(rowIndex, cellIndex) {
-        const newBoard = this.state.board.slice()
+    handleClick(rowIndex, cellIndex, color) {
+        const boardAfterPlayePlay = this.playAPawn(rowIndex, cellIndex, "black");
+        const boardAfterAIPlay = this.aiPlay(boardAfterPlayePlay);
+        this.setState({ board: boardAfterAIPlay })
+    }
+
+    playAPawn(rowIndex, cellIndex, color) {
+        const newBoard = this.state.board.slice();
 
         if (newBoard[rowIndex][cellIndex]) {
-            newBoard[rowIndex][cellIndex] = "black"
+            newBoard[rowIndex][cellIndex] = color;
 
         }
-        this.setState({ newBoard })
 
+        return newBoard;
     }
-    aiPlay() {
-
+    aiPlay(newBoard) {
         let emptyIndex = [];
-        const newBoard = this.state.board
-
         for (let i = 0; i < newBoard.length; i++) {
             for (let j = 0; j < newBoard[i].length; j++) {
-
                 if (newBoard[i][j] === "vide") {
                     emptyIndex.push({ row: i, column: j })
 
                 }
             }
         }
-        let randIndex = Math.floor(Math.random() * emptyIndex.length);
-        console.log(newBoard[randIndex].row);
-        // if (newBoard[randIndex]) {
-        //     console.log("pilou");
-        // }
-        // this.setState({ newBoard })
-        // console.log(newBoard[rowRandIndex][cellRandIndex], 'r');
-        //newBoard[rowRandIndex][cellRandIndex] = "white"
+        let randIndex = emptyIndex[Math.floor(Math.random() * emptyIndex.length)];
+        console.log(emptyIndex, randIndex);
+        return this.playAPawn(randIndex.row, randIndex.column, "white");
     }
 
     render() {
@@ -72,7 +71,7 @@ class InitializeBoard extends React.Component {
                     return <td className="row" style={styles.container} key={rowIndex}>
 
                         {row.map((cell, cellIndex) => {
-                            return <Square className="column" key={cellIndex} value={cell} onClick={() => { this.handleClick(rowIndex, cellIndex); this.aiPlay() }} />
+                            return <Square className="column" key={cellIndex} value={cell} onClick={() => { this.handleClick(rowIndex, cellIndex); }} />
                         })}
 
 
