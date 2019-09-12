@@ -21,6 +21,7 @@ class InitializeBoard extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.playAPawn = this.playAPawn.bind(this);
         this.aiPlay = this.aiPlay.bind(this);
+        this.turnPawn = this.turnPawn.bind(this)
     }
 
     handleClick(rowIndex, cellIndex, color) {
@@ -36,7 +37,7 @@ class InitializeBoard extends React.Component {
             newBoard[rowIndex][cellIndex] = color;
 
         }
-
+        this.turnPawn(rowIndex, cellIndex, color)
         return newBoard;
     }
     aiPlay(newBoard) {
@@ -50,9 +51,17 @@ class InitializeBoard extends React.Component {
             }
         }
         let randIndex = emptyIndex[Math.floor(Math.random() * emptyIndex.length)];
-        console.log(emptyIndex, randIndex);
+
         return this.playAPawn(randIndex.row, randIndex.column, "white");
     }
+
+    turnPawn(rowIndex, cellIndex, color) {
+        const board = this.state.board
+        if (rowIndex === 5 && cellIndex === 3) {
+            board[4][3] = "black"
+        }
+    }
+
 
     render() {
         const styles = {
