@@ -57,6 +57,25 @@ class InitializeBoard extends React.Component {
 
     turnPawn(rowIndex, cellIndex, color) {
         const board = this.state.board
+        let XemptyCase = 0;
+        let JemptyCase = 0;
+
+        for (var i = 0; i < board.length; i++) {
+            for (var j = 0; j < board.length; j++) {
+                //first diagonal
+
+                if (i === j && ((board[i][j] !== "black") || (board[i][j] !== "white"))) {
+                    console.log(board[i][j], 'case first');
+
+                }
+                // second diagonal
+                if (i + j === board.length - 1) {
+                    console.log(board[i][j], 'case second');
+
+                }
+            }
+        }
+
         if (rowIndex === 5 && cellIndex === 3) {
             board[4][3] = "black"
         }
