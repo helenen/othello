@@ -37,7 +37,7 @@ class InitializeBoard extends React.Component {
             newBoard[rowIndex][cellIndex] = color;
 
         }
-        this.turnPawn(rowIndex, cellIndex, color)
+        this.turnPawn(newBoard, rowIndex, cellIndex, color)
         return newBoard;
     }
     aiPlay(newBoard) {
@@ -55,30 +55,46 @@ class InitializeBoard extends React.Component {
         return this.playAPawn(randIndex.row, randIndex.column, "white");
     }
 
-    turnPawn(rowIndex, cellIndex, color) {
-        const board = this.state.board
-        let XemptyCase = 0;
-        let JemptyCase = 0;
+    turnPawn(newBoard, rowIndex, cellIndex, color) {
+        //position du dernier pion placé
 
-        for (var i = 0; i < board.length; i++) {
-            for (var j = 0; j < board.length; j++) {
-                //first diagonal
+        for (var i = newBoard.length; i >= 0; i--) {
+            console.log(newBoard[i]);
 
-                if (i === j && ((board[i][j] !== "black") || (board[i][j] !== "white"))) {
-                    console.log(board[i][j], 'case first');
-
-                }
-                // second diagonal
-                if (i + j === board.length - 1) {
-                    console.log(board[i][j], 'case second');
-
-                }
-            }
         }
 
-        if (rowIndex === 5 && cellIndex === 3) {
-            board[4][3] = "black"
-        }
+        // let pawnPos = [];
+
+        // for (var i = 0; i < newBoard.length; i++) {
+        //     for (var j = 0; j < newBoard.length; j++) {
+        //         if (newBoard[i][j] !== "vide") {
+        //             pawnPos.push({ column: i, row: j })
+        //         }
+        //     }
+        // }
+
+
+
+
+        // for (var i = 0; i < board.length; i++) {
+        //     for (var j = 0; j < board.length; j++) {
+        //         //first diagonal
+
+        //         if (i === j && ((board[i][j] !== "black") || (board[i][j] !== "white"))) {
+        //             console.log(board[i][j], 'case first');
+
+        //         }
+        //         // second diagonal
+        //         if (i + j === board.length - 1) {
+        //             console.log(board[i][j], 'case second');
+
+        //         }
+        //     }
+        // }
+
+        // if (rowIndex === 5 && cellIndex === 3) {
+        //     board[4][3] = "black"
+        // }
     }
 
 
