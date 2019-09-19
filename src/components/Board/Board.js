@@ -56,13 +56,14 @@ class InitializeBoard extends React.Component {
     }
 
     turnPawn(newBoard, rowIndex, cellIndex, color) {
-        //position du dernier pion placé
 
-        for (var i = newBoard.length; i >= 0; i--) {
-            console.log(newBoard[i]);
-
+        for (let i = 0; i < newBoard.length; i--) {
+            console.log(newBoard[i], 'i');
         }
 
+
+
+        //position du dernier pion placé
         // let pawnPos = [];
 
         // for (var i = 0; i < newBoard.length; i++) {
@@ -72,6 +73,12 @@ class InitializeBoard extends React.Component {
         //         }
         //     }
         // }
+        // console.log(pawnPos, 'pos');
+
+
+
+
+
 
 
 
