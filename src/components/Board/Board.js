@@ -56,9 +56,11 @@ class InitializeBoard extends React.Component {
     }
 
     turnPawn(newBoard, rowIndex, cellIndex, color) {
-
-        for (let i = 0; i < newBoard.length; i--) {
-            console.log(newBoard[i], 'i');
+        console.log(newBoard, "newBoard");
+        console.log(rowIndex, "rowIndex");
+        console.log(cellIndex, "cellIndex");
+        for (let i = cellIndex; i < newBoard[rowIndex].length; i++) {
+            console.log(newBoard[rowIndex][i], i);
         }
 
 
