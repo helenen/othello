@@ -4,11 +4,12 @@ let styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 'auto',
+        margin: '0px',
         color: 'black',
         border: "0.1px solid",
         height: '3rem',
-        width: "6rem"
+        width: "6rem",
+        padding: "Opx"
     },
     isBlack: {
         height: '25px',
@@ -30,10 +31,10 @@ class Square extends React.Component {
 
     render() {
         return (
-            <div className="square" style={styles.square} onClick={this.props.onClick} >
+            <td className="square" style={styles.square} onClick={this.props.onClick} >
 
                 {this.props.value === "black" ? (<div className="pawn" style={styles.isBlack} value={this.props.column} />) : this.props.value === "white" ? (<div className="pawn" style={styles.isWhite} value={this.props.column} />) : ""}
-            </div>
+            </td>
         )
     }
 }
