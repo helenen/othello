@@ -56,17 +56,35 @@ class InitializeBoard extends React.Component {
     // }
 
     turnPawn(newBoard, rowIndex, cellIndex, color) {
+        const colorOponent = color === 'white' ? "black" : 'white';
+        for (
+            let i = cellIndex + 1;
+            i < newBoard[rowIndex].length && newBoard[rowIndex][i] === colorOponent;
+            i++
+        ) {
 
-        for (let i = cellIndex; i < newBoard[rowIndex].length; i++) {
-            let count = 0
-            //  console.log(newBoard[rowIndex][i], "i");
+            //si dernier pion === noir alors nesting
 
-            if (newBoard[rowIndex][i] === "black") {
-                count += 1
-                console.log(count, "count");
-            }
+            console.log(newBoard[rowIndex].length - 1, i, "last");
+
+
+
+            // //let count = 0
+            // Tu arrête la boucle quand = (case === couleur || case === vide || i > plateau)
+            // Tu continue la boucle tant que = !((case === couleur || case === vide) || (i > plateau))
+            //                                = !(case === couleur || case === vide) && i < plateau)
+            //                                = case !== couleur && case !== vide && i < plateau
+            //                                = case === couleurAdverse && i < plateau
+
+
+            //console.log(newBoard[rowIndex][i], i, "i");
+            // if (newBoard[rowIndex][i] === "black") {
+            //     count += 1
+            //     console.log(count, "count");
+            // }
 
         }
+
     }
 
 
