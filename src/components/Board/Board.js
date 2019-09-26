@@ -56,34 +56,38 @@ class InitializeBoard extends React.Component {
     // }
 
     turnPawn(newBoard, rowIndex, cellIndex, color) {
-        const colorOponent = color === 'white' ? "black" : 'white';
+        const colorPawn = color === 'black' ? "white" : "black";
+        const changeColor = "black"
+        let lastElementRight
+        let lastElementLeft
+
         for (
             let i = cellIndex + 1;
-            i < newBoard[rowIndex].length && newBoard[rowIndex][i] === colorOponent;
+            i < newBoard[rowIndex].length && newBoard[rowIndex][i] === colorPawn;
             i++
         ) {
 
-            //si dernier pion === noir alors nesting
-
-            console.log(newBoard[rowIndex].length - 1, i, "last");
-
-
-
-            // //let count = 0
-            // Tu arrête la boucle quand = (case === couleur || case === vide || i > plateau)
-            // Tu continue la boucle tant que = !((case === couleur || case === vide) || (i > plateau))
-            //                                = !(case === couleur || case === vide) && i < plateau)
-            //                                = case !== couleur && case !== vide && i < plateau
-            //                                = case === couleurAdverse && i < plateau
-
-
-            //console.log(newBoard[rowIndex][i], i, "i");
-            // if (newBoard[rowIndex][i] === "black") {
-            //     count += 1
-            //     console.log(count, "count");
-            // }
+            if (newBoard[rowIndex].length - 1) {
+                lastElementRight = i
+            }
 
         }
+        // inverse loop 
+        for (
+            let i = cellIndex - 1;
+            i < newBoard[rowIndex].length && newBoard[rowIndex][i] === colorPawn;
+            i--
+        ) {
+
+            console.log(newBoard[rowIndex][i], "i");
+            if (newBoard[rowIndex].length - 1) {
+                lastElementLeft = i
+            }
+
+        }
+        //change color last white pawn
+        newBoard[rowIndex][lastElementRight] = changeColor
+        newBoard[rowIndex][lastElementLeft] = changeColor
 
     }
 
